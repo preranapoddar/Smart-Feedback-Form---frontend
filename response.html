@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Status</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+
+    .status-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .details {
+      text-align: left;
+      margin-top: 20px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .details p {
+      margin-bottom: 6px;
+    }
+
+    .feedback-box {
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="status-container container" id="statusBox">
+    <!-- Dynamic content here -->
+  </div>
+
+  <script>
+    const dataKey = "feedback-data-xyz";
+
+    // Simulated response (replace later with real backend response)
+    const data = JSON.parse(localStorage.getItem(dataKey)) || {};
+
+    const box = document.getElementById("statusBox");
+
+    if (data) {
+      box.innerHTML = `
+        <div class="icon success">✔</div>
+        <h2>Feedback Submitted Successfully</h2>
+        <p>Thank you for sharing your feedback with us.</p>
+
+        <div class="details">
+          <h3>📋 Submitted Details: </h3> <br />
+
+          <p><strong>👤 Full Name:</strong> ${data.name || 'N/A'}</p>
+          <p><strong>📧 Email Address:</strong> ${data.email || 'N/A'}</p>
+          <p><strong>⭐ Experience Rating:</strong> ${data.rating ? data.rating + ' / 5' : 'N/A'}</p>
+          <p><strong>📢 Source:</strong> ${data.source || 'N/A'}</p>
+          <p><strong>✅ Features Liked:</strong> ${(data.likedFeatures) ? data.likedFeatures : 'None Selected'}</p>
+
+          <p><strong>💬 Feedback:</strong></p>
+          <div class="feedback-box">
+            ${data.message || 'No additional comments provided.'}
+          </div>
+        </div>
+
+        <button onclick="goBack()">Submit Another Response</button>
+      `;
+    } else {
+      box.innerHTML = `
+        <div class="icon error">✖</div>
+        <h2>Submission Failed</h2>
+        <p>Oops! Unable to submit your feedback. Please try again.</p>
+      `;
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

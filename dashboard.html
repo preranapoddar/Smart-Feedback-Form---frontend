@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Feedback Dashboard</title>
+
+        <link rel="stylesheet" href="./css/style.css" />
+
+        <style>
+            body {
+                display: flex;
+                align-items: start;
+            }
+
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #eee;
+            }
+
+            th {
+                background: #f5f5f5;
+            }
+
+            tr:hover {
+                background: #fafafa;
+            }
+
+            .btn {
+                padding: 6px 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                background: #667eea;
+                color: white;
+            }
+
+            .btn:hover {
+                background: #5a67d8;
+            }
+
+            .empty {
+                text-align: center;
+                color: #777;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>📊 Feedback Dashboard</h2>
+
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Rating</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="empty" id="emptyMsg" style="display: none">
+                No feedback available.
+            </div>
+        </div>
+
+        <script>
+            const port = "https://smart-feedback-form-backend-production.up.railway.app";
+            const dataKey = "feedback-data-xyz";
+            let feedbackList = [];
+
+            const tbody = document.querySelector("tbody");
+            const emptyMsg = document.getElementById("emptyMsg");
+
+            fetch(port + "/feedback/all", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Token: localStorage.getItem("auth-token-xyz"),
+                },
+            })
+                .then((response) => {
+                    if (!response.ok)
+                        throw new Error("Unauthorized request, please login.");
+                    return response.json();
+                })
+                .then((responseData) => {
+                    responseData.forEach((item) => feedbackList.push(item));
+                    if (feedbackList && feedbackList.length == 0)
+                        emptyMsg.style.display = "block";
+                    else
+                        feedbackList.forEach((item, index) => {
+                            const row = document.createElement("tr");
+
+                            row.innerHTML = `
+                          <td>${item.name}</td>
+                          <td>${item.email}</td>
+                          <td>${item.rating || "-"} </td>
+                          <td><button class="btn" onclick="viewDetails(${index})">View</button></td>
+                        `;
+
+                            tbody.appendChild(row);
+                        });
+                })
+                .catch((error) => {
+                    console.error(error);
+                    emptyMsg.style.display = "block";
+                    alert("Unauthorized request, please login.");
+                    window.location.href = "login.html";
+                });
+
+            function viewDetails(index) {
+              let selected = feedbackList[index];
+                localStorage.setItem(dataKey, JSON.stringify(selected));
+                console.log(selected);
+      
+                window.location.href = "response.html";
+            }
+        </script>
+    </body>
+</html>

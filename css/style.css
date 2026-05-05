@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ffffff, #eef1ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: #fff;
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    margin-top: 2rem;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    letter-spacing: 0.2;
+}
+
+/* .form-group {
+    margin-bottom: 1.2rem;
+} */
+
+#feedbackForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: none;
+    overflow-y: scroll;
+}
+
+/* FIXED CHECKBOX ALIGNMENT */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.options input {
+    width: auto;
+}
+
+/* FIXED STAR RATING */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end; /* keep stars near label */
+    width: fit-content; /* prevent full width stretch */
+}
+
+.form-group .rating {
+    margin-top: 5px;
+    display: flex;
+    gap: 8px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 28px;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    color: rgb(230, 196, 0);
+}
+
+.rating input:checked ~ label {
+    color: rgb(230, 196, 0);
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 28px;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold;
+}
+
+.rating input:checked ~ label {
+    color: gold;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #667eea;
+    color: white;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+.required::after {
+    content: '*';
+    color: red;
+    padding-left: 2px;
+}
+
+form.disabled {
+  opacity: 0.7;
+  pointer-events: none; /* prevents clicking */
+}
