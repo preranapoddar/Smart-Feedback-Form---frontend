@@ -5,99 +5,106 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Smart Feedback Form</title>
 
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <div class="container">
-            <h2>Smart Feedback Form</h2>
+        <div class="mainContainer">
+            <div style="text-align: end">
+                <a href="./dashboard.html">Dashboard</a>
+            </div>
+            <div class="container">
+                <h2>Smart Feedback Form</h2>
 
-            <form id="feedbackForm">
-                <!-- Name -->
-                <div class="form-group">
-                    <label for="name" class="required">Full Name</label>
-                    <input type="text" id="name" required />
-                </div>
-
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email" class="required">Email</label>
-                    <input type="email" id="email" required />
-                </div>
-
-                <!-- Rating -->
-                <div class="form-group" >
-                    <label class="required">Rate Your Experience</label>
-                    <div class="rating">
-                        <input
-                            type="radio"
-                            name="rating"
-                            value="5"
-                            id="r5"
-                        /><label for="r5">★</label>
-                        <input
-                            type="radio"
-                            name="rating"
-                            value="4"
-                            id="r4"
-                            checked
-                        /><label for="r4">★</label>
-                        <input
-                            type="radio"
-                            name="rating"
-                            value="3"
-                            id="r3"
-                        /><label for="r3">★</label>
-                        <input
-                            type="radio"
-                            name="rating"
-                            value="2"
-                            id="r2"
-                        /><label for="r2">★</label>
-                        <input
-                            type="radio"
-                            name="rating"
-                            value="1"
-                            id="r1"
-                        /><label for="r1">★</label>
+                <form id="feedbackForm">
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name" class="required">Full Name</label>
+                        <input type="text" id="name" required />
                     </div>
-                </div>
 
-                <!-- MCQ -->
-                <div class="form-group">
-                    <label>How did you hear about us?</label>
-                    <select id="source">
-                        <option value="">Select</option>
-                        <option value="social_media">Social Media</option>
-                        <option value="friend">Friend</option>
-                        <option value="ads">Ads</option>
-                    </select>
-                </div>
-
-                <!-- Checkbox -->
-                <div class="form-group">
-                    <label>What features did you like?</label>
-                    <div class="options">
-                        <label><input type="checkbox" value="UI" /> UI</label>
-                        <label
-                            ><input type="checkbox" value="Performance" />
-                            Performance</label
-                        >
-                        <label
-                            ><input type="checkbox" value="Features" />
-                            Features</label
-                        >
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" required />
                     </div>
-                </div>
 
-                <!-- Text -->
-                <div class="form-group">
-                    <label>Additional Feedback</label>
-                    <textarea id="feedback" rows="4"></textarea>
-                </div>
+                    <!-- Rating -->
+                    <div class="form-group">
+                        <label class="required">Rate Your Experience</label>
+                        <div class="rating">
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="5"
+                                id="r5"
+                            /><label for="r5">★</label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="4"
+                                id="r4"
+                                checked
+                            /><label for="r4">★</label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="3"
+                                id="r3"
+                            /><label for="r3">★</label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="2"
+                                id="r2"
+                            /><label for="r2">★</label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="1"
+                                id="r1"
+                            /><label for="r1">★</label>
+                        </div>
+                    </div>
 
-                <button type="submit">Submit Feedback</button>
-            </form>
+                    <!-- MCQ -->
+                    <div class="form-group">
+                        <label>How did you hear about us?</label>
+                        <select id="source">
+                            <option value="">Select</option>
+                            <option value="social_media">Social Media</option>
+                            <option value="friend">Friend</option>
+                            <option value="ads">Ads</option>
+                        </select>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-group">
+                        <label>What features did you like?</label>
+                        <div class="options">
+                            <label
+                                ><input type="checkbox" value="UI" /> UI</label
+                            >
+                            <label
+                                ><input type="checkbox" value="Performance" />
+                                Performance</label
+                            >
+                            <label
+                                ><input type="checkbox" value="Features" />
+                                Features</label
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Text -->
+                    <div class="form-group">
+                        <label>Additional Feedback</label>
+                        <textarea id="feedback" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit">Submit Feedback</button>
+                </form>
+            </div>
         </div>
     </body>
-<script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 </html>
