@@ -169,3 +169,111 @@ form.disabled {
   opacity: 0.7;
   pointer-events: none; /* prevents clicking */
 }
+
+
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+    
+    body {
+        justify-content: flex-start;
+    }
+
+    .mainContainer {
+        width: calc(100vw - 30px);
+        padding: 15px;
+        margin-top: 1rem;
+    }
+
+    .container {
+        width: 80vw;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    input,
+    textarea,
+    select,
+    button {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    label {
+        font-size: 0.95rem;
+    }
+
+    .rating label {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 90vw;
+    } 
+
+    body {
+        /* align-items: flex-start; */
+        justify-content: flex-start;
+    }
+
+    .mainContainer {
+        width: calc(100vw - 16px);
+        padding: 8px;
+        margin-top: 0.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    #feedbackForm {
+        gap: 1.2rem;
+    }
+
+    input,
+    textarea,
+    select,
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .rating {
+        gap: 4px;
+    }
+
+    .rating label {
+        font-size: 22px;
+    }
+
+    button {
+        padding: 11px;
+    }
+}
+
+.hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hint.valid {
+    color: green;
+}
+
+.hint.invalid {
+    color: red;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
