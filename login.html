@@ -59,6 +59,73 @@
             button:hover {
                 background: #5a67d8;
             }
+
+            @media screen and (max-width: 768px) {
+                body {
+                    padding: 15px;
+                }
+
+                .container {
+                    width: 100%;
+
+                    min-width: unset;
+
+                    padding: 25px;
+                }
+
+                h2 {
+                    font-size: 1.6rem;
+                }
+
+                input {
+                    padding: 12px;
+
+                    font-size: 16px;
+                }
+
+                button {
+                    padding: 13px;
+
+                    font-size: 15px;
+                }
+
+                .error {
+                    font-size: 0.9rem;
+                }
+            }
+
+            /* CHANGED: Small mobile devices */
+            @media screen and (max-width: 480px) {
+                .container {
+                    padding: 20px;
+
+                    border-radius: 10px;
+                }
+
+                h2 {
+                    font-size: 1.4rem;
+                }
+
+                label {
+                    font-size: 14px;
+                }
+
+                input {
+                    font-size: 15px;
+
+                    padding: 11px;
+                }
+
+                button {
+                    font-size: 14px;
+
+                    padding: 12px;
+                }
+
+                .hint {
+                    font-size: 12px;
+                }
+            }
         </style>
     </head>
 
