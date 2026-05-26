@@ -1,80 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+    <!-- CHANGED: Important for responsiveness -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
     <title>Feedback QR</title>
 
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: Arial, sans-serif;
+
             background-color: #f5f7fa;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
-            height: 100vh;
+
+            min-height: 100vh;
+
+            padding: 20px;
         }
 
         .container {
             text-align: center;
+
             background: #ffffff;
+
             padding: 30px 40px;
+
             border-radius: 12px;
+
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+            width: 100%;
+
+            max-width: 450px;
         }
 
         h1 {
             margin-bottom: 20px;
+
             color: #333;
+
+            font-size: 2rem;
         }
 
         .qr-image {
             width: 220px;
+
             height: 220px;
+
             object-fit: contain;
+
             margin: 15px 0;
+
+            max-width: 100%;
         }
 
         p {
             color: #666;
+
             font-size: 14px;
+
+            line-height: 1.5;
         }
 
-        /* Link button style */
         .feedback-link {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
-            background-color: #4CAF50;
+
+            margin-top: 20px;
+
+            padding: 12px 20px;
+
+            background-color: #4caf50;
+
             color: white;
+
             text-decoration: none;
+
             border-radius: 6px;
-            font-size: 14px;
+
+            font-size: 15px;
+
             transition: 0.3s;
         }
 
         .feedback-link:hover {
             background-color: #45a049;
         }
+
+        /* CHANGED: Tablet responsiveness */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .qr-image {
+                width: 190px;
+                height: 190px;
+            }
+
+            .feedback-link {
+                width: 100%;
+            }
+        }
+
+        /* CHANGED: Mobile responsiveness */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .qr-image {
+                width: 160px;
+                height: 160px;
+            }
+
+            p {
+                font-size: 13px;
+            }
+
+            .feedback-link {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
-<body>
 
+<body>
     <div class="container">
         <h1>Scan to Give Feedback</h1>
 
-        <!-- Replace with your QR image -->
-        <img src="./img/qr.png" alt="QR Code for Feedback" class="qr-image">
+        <img
+            src="./img/qr.png"
+            alt="QR Code for Feedback"
+            class="qr-image"
+        />
 
         <p>Your feedback helps us improve 🙌</p>
 
-        <!-- Replace the link below with your actual form/link -->
-        <a href="https://preranapoddar.github.io/Smart-Feedback-Form---frontend/" target="_blank" class="feedback-link">
+        <a
+            href="https://preranapoddar.github.io/Smart-Feedback-Form---frontend/"
+            target="_blank"
+            class="feedback-link"
+        >
             Open Feedback Form
         </a>
     </div>
-
 </body>
 </html>
