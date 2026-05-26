@@ -1,4 +1,5 @@
-const port = "https://smart-feedback-form-backend-production.up.railway.app";
+// const port = "https://smart-feedback-form-backend-production.up.railway.app";
+const port = "http://localhost:8080";
 const dataKey = "feedback-data-xyz";
 
 document
@@ -77,3 +78,33 @@ function enableForm() {
         (el) => (el.disabled = false),
     );
 }
+
+
+const emailInput = document.getElementById("email");
+const emailHint = document.getElementById("emailHint");
+
+const submitBtn = document.querySelector(
+    '#feedbackForm button[type="submit"]',
+);
+
+function validateEmail() {
+    const email = emailInput.value.trim();
+
+    if (isValidEmail(email)) {
+        emailHint.textContent = "Valid email";
+        emailHint.className = "hint valid";
+
+        submitBtn.disabled = false;
+    } else {
+        emailHint.textContent =
+            "Enter valid email like abc@xyz.com";
+
+        emailHint.className = "hint invalid";
+
+        submitBtn.disabled = true;
+    }
+}
+
+emailInput.addEventListener("input", validateEmail);
+
+validateEmail();
