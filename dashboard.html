@@ -57,6 +57,60 @@
                 color: #777;
                 margin-top: 20px;
             }
+
+            /* Responsive table container */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Prevent breaking on small screens */
+}
+
+/* Table cells */
+th,
+td {
+    padding: 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #ddd;
+
+    max-width: 150px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    th,
+    td {
+        padding: 10px;
+
+        font-size: 14px;
+
+        max-width: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    th,
+    td {
+        padding: 8px;
+
+        font-size: 13px;
+
+        max-width: 80px;
+    }
+}
         </style>
     </head>
 
@@ -64,6 +118,7 @@
         <div class="container">
             <h2>📊 Feedback Dashboard</h2>
 
+            <div class = "table-container">
             <table id="table">
                 <thead>
                     <tr>
@@ -75,6 +130,7 @@
                 </thead>
                 <tbody></tbody>
             </table>
+            </div>
 
             <div class="empty" id="emptyMsg" style="display: none">
                 No feedback available.
